@@ -1,6 +1,10 @@
 {
   "$schema": "https://typedoc.org/schema.json",
   "entryPoints": ["./src/index.ts"],
+  // "entryPoints": [
+  //   "./src/restaurants",
+  //   "./src/buys"
+  // ],
   "out": "docs",
   
   "compilerOptions": {
