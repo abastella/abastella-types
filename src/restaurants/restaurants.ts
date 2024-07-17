@@ -47,6 +47,9 @@ export interface Restaurant {
   bank?: number | string;
   bankAccount?: string;
   businessname?: string;
+  /** 
+  * @deprecated
+  */
   chartData?: ChartData;
   config?: Config;
   contact?: string;
