@@ -14,6 +14,7 @@
  * @param {string} user - The user of the buy
  * @param {number} xmlAttempts - The xml attempts of the buy
  * @param {string} xmlFoundStatus - The xml found status of the buy
+ * @param {string} xmlEntryType - Identify type of xml upload
  */
 export interface Buy {
   category?: Category;
@@ -27,6 +28,7 @@ export interface Buy {
   user?: string;
   xmlAttempts?: number;
   xmlFoundStatus?: string;
+  xmlEntryType?: string;
 }
 
 export interface Category {
