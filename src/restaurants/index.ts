@@ -2,5 +2,14 @@
 /**
  * @module Restaurants
  */
-export { Restaurant} from './restaurants';
-export { ChartData } from './restaurants';
+export { 
+    Restaurant,
+} from './restaurants';
+
+// other modules will be added here
+/**
+ * @module File
+ */
+export {
+    File, Files
+} from './file'

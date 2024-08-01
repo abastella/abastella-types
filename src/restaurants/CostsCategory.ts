@@ -19,7 +19,6 @@ export type CostsCategory = {
     label:       string;
 }
 
-
 /**
  * CostsCategoryChild type
  * @category Restaurant
