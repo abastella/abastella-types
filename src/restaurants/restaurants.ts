@@ -55,6 +55,9 @@ export interface Restaurant {
   /**
    * @deprecated
    */
+  /**
+   * @deprecated
+   */
   chartData?: ChartData;
   config?: Config;
   contact?: string;
