@@ -2,7 +2,11 @@
 
 import { Buy } from "../buys";
 import { CostsCategory } from "./CostsCategory";
+import { Count } from "./counts";
+import { File } from "./file";
+import { Homologation } from "./homologation";
 import { Ingredient } from "./ingredients";
+import { Supplier } from "./suppliers";
 
 /**
  * @name - Type de Restaurant
@@ -51,6 +55,9 @@ export interface Restaurant {
   /**
    * @deprecated
    */
+  /**
+   * @deprecated
+   */
   chartData?: ChartData;
   config?: Config;
   contact?: string;
@@ -73,18 +80,24 @@ export interface Restaurant {
   priceList?: PriceList;
   rut?: string;
   storageConfig?: StorageConfig;
-  suppliers?: string[];
+  suppliers?: Supplier[];
   tempInventory?: TempInventory;
   tempSales?: TempSales;
   buys?: Buy[];
+  branches?: Branch[];
+  categories?: any[]; // todo: refactor to Categories[]
+  counts?: Count[];
+  files? : File[];
+  homologations: Homologation[];
   ingredients?: Ingredient[];
 }
 
 /**
- * The ChartData type
+ * @name - The ChartData type
  * @category Restaurant
- * @param isActive: boolean - Indicates whether the chart is active or not.
- * @param months:   Month[] - An array of Month objects representing the data for each month.
+ * @module Restaurant
+ * @param isActive: boolean - Indica si esta activo o no.
+ * @param months:   Month[] - Arreglo de meses, cada objeto representa datos por cada mes.
  * @returns ChartData
  *
  */
@@ -118,7 +131,7 @@ export type Month = {
 };
 
 /**
- * The CogsByArea type
+ * @name - CogsByArea type
  * @param active:      boolean - Indica si el costo de ventas por área está activado o no.
  * @param areas:       string[] - Nombres de las áreas.
  * @param cogsAmount:  number[] - Montos de costo de ventas.
@@ -137,7 +150,7 @@ export type CogsByArea = {
 };
 
 /**
- * The Datum type
+ * @name - Datum type
  * @param area:           string - Nombre del área.
  * @param areaPercentage: number - Porcentaje del área.
  * @param chartColor:     string - Color del gráfico.
@@ -148,29 +161,19 @@ export type CogsByArea = {
  * @param sales:          number - Ventas.
  * @returns Datum
  */
-/**
- * Representa un dato.
- */
 export type Datum = {
   area: string;
-
   areaPercentage: number;
-
   chartColor: string;
-
   chartName: string;
-
   cogs: number;
-
   cogsPercentage: number;
-
   color: string;
-
   sales: number;
 };
 
 /**
- * The Inventory type
+ * @name - The Inventory type
  * @param finalCount:                 number
  * @param finalDate:                  string
  * @param finalInventoryValue:        number
@@ -183,223 +186,98 @@ export type Datum = {
  * @param initialRawMaterialValue?:   number | null
  * @returns Inventory
  */
-/**
- * Represents the inventory of a restaurant.
- */
 export type Inventory = {
-  /**
-   * The final count of items in the inventory.
-   */
   finalCount: number;
-
-  /**
-   * The final date of the inventory.
-   */
   finalDate: string;
-
-  /**
-   * The final value of the inventory.
-   */
   finalInventoryValue: number;
-
-  /**
-   * The final value of other supplies in the inventory.
-   */
   finalOtherSuppliesValue?: number | null;
-
-  /**
-   * The final value of raw materials in the inventory.
-   */
   finalRawMaterialValue?: number | null;
-
-  /**
-   * The initial count of items in the inventory.
-   */
   initialCount: number;
-
-  /**
-   * The initial date of the inventory.
-   */
   initialDate: string;
-
-  /**
-   * The initial value of the inventory.
-   */
   initialInventoryValue: number;
-
-  /**
-   * The initial value of other supplies in the inventory.
-   */
   initialOtherSuppliesValue?: number | null;
-
-  /**
-   * The initial value of raw materials in the inventory.
-   */
   initialRawMaterialValue?: number | null;
 };
 
 /**
- * The PotentialSavings type
- * @param items:              Item[]
- * @param linkDetail:         string
- * @param savings:            number
- * @param savingsPercentage?: number | null
+ * @name - PotentialSavings type
+ * @param items:              Item[] - Arreglo de items.
+ * @param linkDetail:         string - Enlace al detalle.
+ * @param savings:            number - Ahorros.
+ * @param savingsPercentage?: number | null - Porcentaje de ahorros.
  * @returns PotentialSavings
  */
-/**
- * Represents potential savings for a restaurant.
- */
 export type PotentialSavings = {
-  /**
-   * The items associated with the potential savings.
-   */
   items: Item[];
-
-  /**
-   * The link to the detailed information about the potential savings.
-   */
   linkDetail: string;
-
-  /**
-   * The total savings amount.
-   */
   savings: number;
-
-  /**
-   * The savings percentage (optional).
-   */
   savingsPercentage?: number | null;
 };
 
 /**
- * The Item type
- * @param buys:        number
- * @param id:          number
- * @param name:        string
- * @param percentage?: number
- * @param savings:     number
+ * @name - Item type
+ * @param buys:        number - Compras.
+ * @param id:          number - Identificador único.
+ * @param name:        string - Nombre.
+ * @param percentage?: number - Porcentaje.
+ * @param savings:     number - Ahorros.
  * @returns Item
  */
-/**
- * Represents an item in a restaurant.
- */
 export interface Item {
-  /**
-   * The number of items bought.
-   */
   buys: number;
-  /**
-   * The unique identifier of the item.
-   */
   id: number;
-  /**
-   * The name of the item.
-   */
   name: string;
-  /**
-   * The percentage of savings for the item (optional).
-   */
   percentage?: number;
-  /**
-   * The amount of savings for the item.
-   */
   savings: number;
 }
 
 /**
- * The Resume type
- * @param accuracy?:                  number
- * @param buys:                       number
- * @param cogs:                       number
- * @param cogsChart:                  number[]
- * @param cogsImprovement?:           null | string
- * @param cogsImprovementLast?:       number | null
- * @param cogsImprovementPercentage?: number | null
- * @param cogsPercentage:             number
- * @param sales:                      number
- * @param warehouse?:                 number | null
+ * @name - Resume type
+ * @param accuracy?:                  number - Precisión.
+ * @param buys:                       number - Compras.
+ * @param cogs:                       number - Costo de las mercancías vendidas (COGS).
+ * @param cogsChart:                  number[] - Valores del costo de las mercancías vendidas (COGS).
+ * @param cogsImprovement?:           null | string - Mejora del costo de las mercancías vendidas (COGS).
+ * @param cogsImprovementLast?:       number | null - Última mejora del costo de las mercancías vendidas (COGS).
+ * @param cogsImprovementPercentage?: number | null - Porcentaje de mejora del costo de las mercancías vendidas (COGS).
+ * @param cogsPercentage:             number - Porcentaje del costo de las mercancías vendidas (COGS).
+ * @param sales:                      number - Ventas.
+ * @param warehouse?:                 number | null - Almacén / bodega
  * @returns Resume
  *
  */
-/**
- * Represents a resume object.
- */
 export type Resume = {
-  /**
-   * The accuracy of the resume.
-   */
   accuracy?: number;
-  /**
-   * The number of buys.
-   */
   buys: number;
-  /**
-   * The cost of goods sold.
-   */
   cogs: number;
-  /**
-   * An array representing the cost of goods sold chart.
-   */
   cogsChart: number[];
-  /**
-   * The improvement in cost of goods sold.
-   */
   cogsImprovement?: null | string;
-  /**
-   * The last improvement in cost of goods sold.
-   */
   cogsImprovementLast?: number | null;
-  /**
-   * The percentage improvement in cost of goods sold.
-   */
   cogsImprovementPercentage?: number | null;
-  /**
-   * The percentage of cost of goods sold.
-   */
   cogsPercentage: number;
-  /**
-   * The number of sales.
-   */
   sales: number;
-  /**
-   * The warehouse number.
-   */
   warehouse?: number | null;
 };
 
 /**
- * The Sales type
- * @param cogs:   number[]
- * @param months: string[]
- * @param sales:  number[]
+ * @name - Sales type
+ * @param cogs:   number[] - Valores del coste de las mercancías vendidas (COGS).
+ * @param months: string[] - Nombres de los meses correspondientes a los datos de ventas.
+ * @param sales:  number[] - Valores de las ventas.
  * @returns Sales
  *
  */
-/**
- * Represents the sales data for a restaurant.
- */
 export type Sales = {
-  /**
-   * An array of cost of goods sold (COGS) values.
-   */
   cogs: number[];
-
-  /**
-   * An array of month names corresponding to the sales data.
-   */
   months: string[];
-
-  /**
-   * An array of sales values.
-   */
   sales: number[];
 };
 
 /**
- * The TopProduct type
- * @param buys: number
- * @param id:   number
- * @param name: string
+ * @name - TopProduct type
+ * @param buys: number - Numero de compras del producto.
+ * @param id:   number - Identificador único del producto.
+ * @param name: string - Nombre del producto.
  * @returns TopProduct
  */
 export type TopProduct = {
@@ -407,19 +285,13 @@ export type TopProduct = {
   id: number;
   name: string;
 };
+
 /**
- * The TopSupplier type
- * @param buys: number
- * @param id:   number
- * @param name: string
- * @returns TopSupplier
- */
-/**
- * The TopSupplier type
+ * @name - TopSupplier type
  * @category Restaurant
- * @param buys: number - The number of purchases made from this supplier.
- * @param id:   number - The unique identifier of the supplier.
- * @param name: string - The name of the supplier.
+ * @param buys: number - Numero de compras del proveedor.
+ * @param id:   number - Identificador único del proveedor.
+ * @param name: string - Nombre del proveedor.
  * @returns TopSupplier
  */
 export type TopSupplier = {
@@ -429,7 +301,7 @@ export type TopSupplier = {
 };
 
 /**
- * The Config type
+ * @name - Config type
  * @param biller?:         null | string
  * @param billerPassword?: null | string
  * @param billerToken?:    null | string
@@ -450,7 +322,7 @@ export type Config = {
 };
 
 /**
- * The Toteat type
+ * @name - Toteat type
  * @param xapitoken?: string
  * @param xid?:       string
  * @param xil?:       string
@@ -470,7 +342,7 @@ export type Toteat = {
 };
 
 /**
- * Type de Phones
+ * @name - Type de Phones
  * @summary Los teléfonos del restaurante son un listado, pero hay que normalizar el type
  * {@link Restaurant.phone} other declaration
  *
@@ -483,7 +355,7 @@ export type Phones = {
 };
 
 /**
- * The PriceList type
+ * @name - PriceList type
  * @todo Refactor to PriceList
  * @param lsA9C12WvJjSH8EOWxym?: string
  * @param qzwFmqYrltCicCl1zP5P?: string
@@ -494,8 +366,9 @@ export type PriceList = {
   lsA9C12WvJjSH8EOWxym?: string;
   qzwFmqYrltCicCl1zP5P?: string;
 };
+
 /**
- * The StorageConfig type
+ * @name - StorageConfig type
  * @param requestCorrelative: number
  * @returns StorageConfig
  *
@@ -505,7 +378,7 @@ export type StorageConfig = {
 };
 
 /**
- * The TempInventory type
+ * @name - TempInventory type
  * @summary Refactor to TempInventory
  */
 export type TempInventory = {
@@ -518,8 +391,9 @@ export type TempInventory = {
   "202405"?: number;
   "202406"?: number;
 };
+
 /**
- * The TempSales type
+ * @name - TempSales type
  * @summary Refactor to TempSales
  */
 export type TempSales = {
@@ -564,6 +438,20 @@ export type TempSales = {
   updatedBy?: string;
 };
 
+/**
+ * @name - Branch type
+ * @category Restaurant
+ * @module Restaurant
+ * @param address:    string - The address of the branch.
+ * @param comuna:     null - The comuna of the branch.
+ * @param createdAt:  string - The creation date of the branch.
+ * @param deletedAt:  null - The deletion date of the branch.
+ * @param deletedBy:  null - The deletion user of the branch.
+ * @param name:       string - The name of the branch.
+ * @param principal:  boolean - Indicates if the branch is the principal one.
+ * @param updatedAt:  string - The update date of the branch.
+ * @returns Branch
+ */
 export interface Branch {
   address: string;
   comuna: null;

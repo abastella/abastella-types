@@ -1,10 +1,9 @@
 {
     "$schema": "https://typedoc.org/schema.json",
-    "entryPoints": [
-        "src/index.ts"
-    ],
-    "out": "docs",
-    "hideGenerator": true,
-    "tsconfig": "tsconfig.json",
-    "hideParameterTypesInTitle": false
+  "entryPoints": ["src/index.ts"],
+  "out": "docs",
+  "hideGenerator": true,
+  "tsconfig": "tsconfig.json",
+  "hideParameterTypesInTitle": false,
+  "plugin": ["./node_modules/typedoc-plugin-mermaid"],
 }
