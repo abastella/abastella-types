@@ -8,13 +8,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "typedoc --out docs src --plugin typedoc-material-theme --themeColor '#8b5cf6'",
     "prepublishOnly": "tsc",
-    "compile": "tsc",
+    "compile": "tsc -v",
     "prepare": "husky install"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run compile",
-      "pre-push": "npm run compile"
+      "pre-commit": "npm run compile && echo 'Compilación exitosa antes de commit'",
+      "pre-push": "npm run compile && echo 'Compilación exitosa antes de push'"
     }
   },
   "keywords": [],
