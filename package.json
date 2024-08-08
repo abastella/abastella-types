@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "typedoc --out docs src --plugin typedoc-material-theme --themeColor '#8b5cf6'",
     "prepublishOnly": "tsc",
-    "compile": "tsc -v",
+    "compile": "npx tsc",
     "prepare": "husky"
   },
   "keywords": [],
