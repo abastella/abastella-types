@@ -11,12 +11,6 @@
     "compile": "tsc -v",
     "prepare": "husky"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run compile && echo 'Compilación exitosa antes de commit'",
-      "pre-push": "npm run compile && echo 'Compilación exitosa antes de push'"
-    }
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
