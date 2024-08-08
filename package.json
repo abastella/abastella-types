@@ -9,7 +9,7 @@
     "docs": "typedoc --out docs src --plugin typedoc-material-theme --themeColor '#8b5cf6'",
     "prepublishOnly": "tsc",
     "compile": "tsc -v",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "husky": {
     "hooks": {
