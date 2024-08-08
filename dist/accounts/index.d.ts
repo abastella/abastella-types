@@ -1,1 +1,1 @@
-export * from './account';
+export type { Account, Branch } from './account';

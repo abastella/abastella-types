@@ -1,10 +1,10 @@
 /**
  * @module Restaurants
  */
-export { Restaurant, } from './restaurants';
-export { ChartData } from "./restaurants";
-export { Ingredient, PremadeMaterialData, } from "./ingredients";
+export type { Restaurant, } from './restaurants';
+export type { ChartData } from "./restaurants";
+export type { Ingredient, PremadeMaterialData, } from "./ingredients";
 /**
  * @module File
  */
-export { File, Files } from './file';
+export type { File, Files } from './file';
