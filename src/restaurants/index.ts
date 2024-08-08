@@ -1,11 +1,11 @@
 /**
  * @module Restaurants
  */
-export { 
+export type { 
     Restaurant,
 } from './restaurants';
-export { ChartData } from "./restaurants";
-export {
+export type { ChartData } from "./restaurants";
+export type {
   Ingredient,
   PremadeMaterialData,
 } from "./ingredients";
@@ -14,7 +14,7 @@ export {
 /**
  * @module File
  */
-export {
+export type {
     File, Files
 } from './file'
 
