@@ -7,6 +7,8 @@
 - Se han configurado los hooks pre-commit y pre-push para ejecutar la compilación con tsc.
 Cambios internos
 - Se han modificado tsconfig.json y package.json para agregar scripts de compilación.
+- Se configura files que deben ser instalados al momento de compilar en package.json.
+- Se modifica exportacion a types de cada interface.
 
 ### [1.0.1] - 2024-08-01
 #### Changed
