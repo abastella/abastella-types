@@ -4,6 +4,8 @@
 export interface Storagerequest {
     createdAt:     string;
     createdBy:     string;
+    deletedAt:     string;
+    deletedBy:     object;
     createdByName: string;
     id:            string;
     items:         Item[];
@@ -17,5 +19,11 @@ export interface Storagerequest {
     name:  string;
     qty:   number;
     unity: string;
+  }
+
+  export interface deletedBy {
+    id: string;
+    name: string;
+    email: string;
   }
   
