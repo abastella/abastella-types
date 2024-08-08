@@ -2,12 +2,13 @@
   "name": "abastella-types",
   "version": "1.0.1",
   "description": "",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs": "typedoc --out docs src --plugin typedoc-material-theme --themeColor '#8b5cf6'"
+    "docs": "typedoc --out docs src --plugin typedoc-material-theme --themeColor '#8b5cf6'",
+    "prepublishOnly": "tsc"
   },
-  "types": "./dist/index.d.ts",
   "keywords": [],
   "author": "",
   "license": "ISC",
