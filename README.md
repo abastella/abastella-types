@@ -8,11 +8,41 @@ Welcome to the Abastella Types documentation! This repository contains the type 
 
 ## Table of Contents
 
+- [Collections] (#collections)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Extending Types](#extending-types)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Collections
+
+<details >
+  <summary>Accounts</summary>
+</details>
+<details >
+  <summary>Restaurants</summary>
+    <div class="content">
+        <ul style="list-style-type:none;">
+            <li>
+                <details>
+      <summary>Buys</summary>
+      <div class="content">
+        [https://abastella-types.web.app/interfaces/Buy.html](https://abastella-types.web.app/interfaces/Buy.html)
+      </div>
+    </details>
+            </li>
+        <li>
+        <details >
+      <summary>Homologations</summary>
+     <div class="content">
+        <p></p>
+        <p>Another interesting bit of paragraph text about penguins</p>
+      </div>        
+    </details></li>
+        </ul>
+    </div>
+</details>
 
 ## Installation
 
