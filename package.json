@@ -1,6 +1,6 @@
 {
   "name": "abastella-types",
-  "version": "1.0.2",
+  "version": "1.0.2-b",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,6 +13,7 @@
     "prepublishOnly": "tsc",
     "compile": "npx tsc",
     "prepare": "husky"
+    
   },
   "keywords": [],
   "author": "",

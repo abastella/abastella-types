@@ -19,7 +19,7 @@ export interface Homologation {
     ingredientSupplierUnitPrice?: number;
     invoiceDate: string;
     invoiceDiscounts: number;
-    invoiceDiscountsRef: null;
+    invoiceDiscountsRef: unknown;
     invoiceId: number;
     invoiceLineId: string;
     invoicePeriod: string;
