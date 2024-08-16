@@ -87,7 +87,7 @@ export interface Restaurant {
   branches?: Branch[];
   categories?: any[]; // todo: refactor to Categories[]
   counts?: Count[];
-  files? : File[];
+  files?: File[];
   homologations: Homologation[];
   ingredients?: Ingredient[];
 }
@@ -434,6 +434,7 @@ export type TempSales = {
   "202407-nMVcV5ns3qNTER7AV8En"?: number;
   "202407-u2SV9AvIzKaaQ4suJ1bl"?: number;
   "202407-xMkwNDkNZJrV4KXI4XVe"?: number;
+  sales: Record<string, any>;
   updatedAt?: string;
   updatedBy?: string;
 };

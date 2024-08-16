@@ -4,8 +4,8 @@
 export { 
     Restaurant,
 } from './restaurants';
-export { ChartData } from "./restaurants";
-export {
+export type { ChartData, TempSales } from "./restaurants";
+export type {
   Ingredient,
   PremadeMaterialData,
 } from "./ingredients";
