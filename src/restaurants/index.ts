@@ -1,7 +1,7 @@
 /**
  * @module Restaurants
  */
-export { 
+export type { 
     Restaurant,
 } from './restaurants';
 export type { ChartData, TempSales } from "./restaurants";
@@ -14,7 +14,7 @@ export type {
 /**
  * @module File
  */
-export {
+export type {
     File, Files
 } from './file'
 
