@@ -2,4 +2,7 @@
  * @module Firestore
  */
 
-export type { FirestoreLog, FirestoreLogValues } from "./FirestoreLog"
+export type {
+  FirestoreLogEvent,
+  FirestoreLogEventHistory,
+} from "./FirestoreLog"

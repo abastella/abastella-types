@@ -17,3 +17,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./buys"), exports);
 __exportStar(require("./restaurants"), exports);
 __exportStar(require("./accounts"), exports);
+__exportStar(require("./firestore"), exports);
