@@ -97,6 +97,7 @@ export interface Category {
  * @param {string} n - The N of the data
  * @param {string} nce_nde - The NCE/NDE of the data
  * @param {string} period - The period of the data
+ * @param {string} period_fiscal - The fiscal period of the data
  * @param {string} business_name - The business name of the data
  * @param {string} supplier_rut - The supplier RUT of the data
  * @param {string} status - The status of the data
@@ -129,7 +130,10 @@ export interface Data {
   fixed_asset_net_amount: string;
   n: string;
   nce_nde: string;
+  /** Es el período Operacional de la factura en formato YYYYMM. Y siempre comienza con el período fiscal. El usuario lo puede modificar */
   period: string;
+  /** Es el período Fiscal de la factura en formato YYYYMM. Se obtiene del SII y nunca se modifica */
+  period_fiscal?: string;
   business_name: string;
   supplier_rut: string;
   status: string;
